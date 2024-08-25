@@ -38,6 +38,14 @@ func choose_race() string {
 		input = strings.TrimSpace(input)
 
 		if input == "1" || input == "2" {
+			if input == "1" {
+				fmt.Println("You have chosen to fight as the noble human, raise your fist and fight for death and glory in Valholl.")
+			}
+
+			if input == "2" {
+				fmt.Println("You have chosen to fight as the mighty Immortal, cursed to wander Urth for all eternity, swept to and fro by the whims of the gods.")
+			}
+
 			return input
 		}
 
