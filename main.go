@@ -8,11 +8,31 @@ import (
 	"strings"
 )
 
+type Character struct {
+	Race         string
+	Name         string
+	SpecialSkill string
+	Oath         string
+	Debt         int
+	Code         string
+	Power        int
+	Aim          int
+	Speed        int
+	Wits         int
+	Guts         int
+	Resolve      int
+	Skills       []string
+	Gear         []string
+	Armor        []string
+	BloodRunes   []string
+	Desc         string
+}
+
 func main() {
-	fmt.Println("Hello, Go!")
+	fmt.Println("Welcome to Viking Death Squad")
 	choose_race()
 
-	fmt.Println(roll_dice(1, 6, 3))
+	fmt.Println(roll_dice(1, 6, 20))
 }
 
 func roll_dice(min, max, no_of_die int) ([]int, int) {
@@ -22,6 +42,12 @@ func roll_dice(min, max, no_of_die int) ([]int, int) {
 		rolls = append(rolls, rand.Intn((max+1)-min)+min)
 	}
 
+	bool := check_for_crit(rolls)
+
+	if bool {
+		fmt.Printf("Six-six-six, the Number of the Beast \n Hel and fire was spawned to be released! \n")
+	}
+
 	total := 0
 
 	for _, rolls := range rolls {
@@ -29,6 +55,26 @@ func roll_dice(min, max, no_of_die int) ([]int, int) {
 	}
 
 	return rolls, total
+}
+
+func check_for_crit(dice_roll []int) bool {
+	if len(dice_roll) < 3 {
+		return false
+	}
+
+	count := 0
+
+	for _, value := range dice_roll {
+		if value == 6 {
+			count++
+		}
+
+		if count >= 3 {
+			return true
+		}
+	}
+
+	return false
 }
 
 func choose_race() string {
