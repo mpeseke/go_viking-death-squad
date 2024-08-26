@@ -1,8 +1,12 @@
+/*
+Copyright © 2024 Marlon Peseke mpeseke@gmail.com
+*/
 package main
 
 import (
 	"bufio"
 	"fmt"
+	"go_viking-death-squad/cmd"
 	"math/rand"
 	"os"
 	"strings"
@@ -29,6 +33,8 @@ type Character struct {
 }
 
 func main() {
+
+	cmd.Execute()
 	fmt.Println("Welcome to Viking Death Squad")
 	choose_race()
 
