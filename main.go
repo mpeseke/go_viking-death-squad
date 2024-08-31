@@ -34,8 +34,6 @@ type Character struct {
 func main() {
 
 	cmd.Execute()
-	fmt.Println("Welcome to Viking Death Squad")
-	choose_race()
 }
 
 func choose_race() string {
